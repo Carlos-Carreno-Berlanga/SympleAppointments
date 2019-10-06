@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SympleAppointments.Web", "SympleAppointments.Web\SympleAppointments.Web.csproj", "{0BEC53EB-0DE0-4E82-950E-256818FA3376}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SympleAppointments.Web", "SympleAppointments.Web\SympleAppointments.Web.csproj", "{0BEC53EB-0DE0-4E82-950E-256818FA3376}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SympleAppointments.Application", "SympleAppointments.Application\SympleAppointments.Application.csproj", "{0FBFA0FB-EC0B-4E4B-AA94-3DD5428B524A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SympleAppointments.Application", "SympleAppointments.Application\SympleAppointments.Application.csproj", "{0FBFA0FB-EC0B-4E4B-AA94-3DD5428B524A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SympleAppointments.Domain", "SympleAppointments.Domain\SympleAppointments.Domain.csproj", "{20C065F6-013D-47F1-BBB4-FA51FFDC008F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SympleAppointments.Domain", "SympleAppointments.Domain\SympleAppointments.Domain.csproj", "{20C065F6-013D-47F1-BBB4-FA51FFDC008F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SympleAppointments.Persistance", "SympleAppointments.Persistance\SympleAppointments.Persistance.csproj", "{3009EA69-33DC-4450-A615-D772921E9E1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SympleAppointments.Persistence", "SympleAppointments.Persistance\SympleAppointments.Persistence.csproj", "{3009EA69-33DC-4450-A615-D772921E9E1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SympleAppointments.Infrastructure", "SympleAppointments.Infrastructure\SympleAppointments.Infrastructure.csproj", "{B935855B-7C03-49DB-AAED-B4C793AD3740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SympleAppointments.Infrastructure", "SympleAppointments.Infrastructure\SympleAppointments.Infrastructure.csproj", "{B935855B-7C03-49DB-AAED-B4C793AD3740}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SympleAppointments.Domain;
-using SympleAppointments.Persistance;
+using SympleAppointments.Persistence;
 
 namespace SympleAppointments.Web
 {

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using SympleAppointments.Domain;
 
-namespace SympleAppointments.Persistance
+namespace SympleAppointments.Persistence
 {
     public class DataContext : ApiAuthorizationDbContext<AppUser>
     {
