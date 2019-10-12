@@ -5,7 +5,7 @@ namespace SympleAppointments.Domain
 {
     public class Appointment
     {
-        public int AppointmentId { get; set; }
+        public Guid AppointmentId { get; set; }
         public AppUser Worker { get; set; }
         public AppUser Client { get; set; }
 
@@ -13,6 +13,7 @@ namespace SympleAppointments.Domain
 
         public DateTime EndDateTime { get; set; }
 
-        ICollection<Annotation> Annotations { get; set; }
+        public ICollection<Annotation> Annotations { get; set; }
+        public AppointmentStatus Status { get; set; }
     }
 }
