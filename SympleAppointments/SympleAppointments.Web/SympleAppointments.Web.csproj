@@ -29,8 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SympleAppointments.Domain\SympleAppointments.Domain.csproj" />
-    <ProjectReference Include="..\SympleAppointments.Persistance\SympleAppointments.Persistence.csproj" />
+    <ProjectReference Include="..\SympleAppointments.Application\SympleAppointments.Application.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

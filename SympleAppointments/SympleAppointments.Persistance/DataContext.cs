@@ -19,8 +19,6 @@ namespace SympleAppointments.Persistence
 
         public DbSet<Annotation> Annotations { get; set; }
 
-        public DbSet<AppUser> AppUsers { get; set; }
-
         public DbSet<Review> Reviews { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
