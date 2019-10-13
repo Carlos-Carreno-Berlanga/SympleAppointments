@@ -11,6 +11,7 @@ namespace SympleAppointments.Web.Controllers
     public class ReviewsController : BaseController
     {
 
+
         [HttpPost]
         public async Task<ActionResult<ReviewDto>> Create(Create.Command command)
         {

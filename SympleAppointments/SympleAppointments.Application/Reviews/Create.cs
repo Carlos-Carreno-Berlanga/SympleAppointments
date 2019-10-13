@@ -49,6 +49,9 @@ namespace SympleAppointments.Application.Reviews
                 var review = new Review
                 {
                     AppUser = user,
+                    CreatedAt= DateTime.UtcNow,
+                    Comment= request.Comment,
+                    NumberOfStars = request.NumberOfStars
 
                 };
 
