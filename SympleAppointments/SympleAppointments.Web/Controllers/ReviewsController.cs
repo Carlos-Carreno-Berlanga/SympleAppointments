@@ -10,6 +10,12 @@ namespace SympleAppointments.Web.Controllers
 {
     public class ReviewsController : BaseController
     {
+        [HttpGet]
+        public async Task<ActionResult<List<ReviewDto>>> List()
+        {
+
+            return Ok(await Mediator.Send(new GetAll.Query()));
+        }
 
 
         [HttpPost]
