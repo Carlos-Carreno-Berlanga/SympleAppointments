@@ -11,7 +11,7 @@ namespace SympleAppointments.Web.Controllers
     public class ReviewsController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<List<ReviewDto>>> List()
+        public async Task<ActionResult<List<ReviewDto>>> GetAllAsync()
         {
 
             return Ok(await Mediator.Send(new GetAll.Query()));
@@ -19,9 +19,15 @@ namespace SympleAppointments.Web.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<ReviewDto>> Create(Create.Command command)
+        public async Task<ActionResult<ReviewDto>> CreateAsync(Create.Command command)
         {
             return await Mediator.Send(command);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> DeleteAsync(Guid id)
+        {
+            return await Mediator.Send(new Delete.Command { Id = id });
         }
     }
 }
