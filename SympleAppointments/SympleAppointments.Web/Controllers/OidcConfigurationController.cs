@@ -8,7 +8,8 @@ namespace SympleAppointments.Web.Controllers
     {
         private readonly ILogger<OidcConfigurationController> _logger;
 
-        public OidcConfigurationController(IClientRequestParametersProvider clientRequestParametersProvider, ILogger<OidcConfigurationController> logger)
+        public OidcConfigurationController(IClientRequestParametersProvider clientRequestParametersProvider, 
+            ILogger<OidcConfigurationController> logger)
         {
             ClientRequestParametersProvider = clientRequestParametersProvider;
             _logger = logger;

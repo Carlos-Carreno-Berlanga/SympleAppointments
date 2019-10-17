@@ -45,7 +45,13 @@ namespace SympleAppointments.Web
             services.AddAuthentication()
                 .AddIdentityServerJwt();
 
-            services.AddControllersWithViews();
+            services
+                .AddControllersWithViews(cfg =>
+                {
+                    cfg.RespectBrowserAcceptHeader = true;
+
+                })
+                .AddXmlSerializerFormatters();
             services.AddRazorPages()
                 .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Create>())
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);

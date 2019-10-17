@@ -15,4 +15,8 @@
     <ProjectReference Include="..\SympleAppointments.Persistance\SympleAppointments.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Appointments\" />
+  </ItemGroup>
+
 </Project>

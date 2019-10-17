@@ -17,14 +17,12 @@ namespace SympleAppointments.Web.Controllers
             return Ok(await Mediator.Send(new GetOne.Query { Id = id }));
         }
 
-
         [HttpGet]
         public async Task<ActionResult<List<ReviewDto>>> GetAllAsync()
         {
 
             return Ok(await Mediator.Send(new GetAll.Query()));
         }
-
 
         [HttpPost]
         public async Task<ActionResult<ReviewDto>> CreateAsync(Create.Command command)
