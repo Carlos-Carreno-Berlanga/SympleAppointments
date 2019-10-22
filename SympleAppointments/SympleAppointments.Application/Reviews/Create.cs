@@ -19,7 +19,7 @@ namespace SympleAppointments.Application.Reviews
             public int NumberOfStars { get; set; }
             public string Comment { get; set; }
 
-            public string userId { get; set; }
+            public string UserId { get; set; }
         }
 
         public class Handler : IRequestHandler<Command, ReviewDto>
@@ -36,10 +36,10 @@ namespace SympleAppointments.Application.Reviews
             {
                 AppUser user = null;
 
-                if (!string.IsNullOrEmpty(request.userId))
+                if (!string.IsNullOrEmpty(request.UserId))
                 {
-                    user = await _context.Users.SingleOrDefaultAsync(x => x.Id == request.userId);
-                    if (_context.Users.FindAsync(request.userId) == null)
+                    user = await _context.Users.SingleOrDefaultAsync(x => x.Id == request.UserId);
+                    if (_context.Users.FindAsync(request.UserId) == null)
                     {
                         throw new RestException(HttpStatusCode.NotFound, new { User = "Not found" });
                     }
