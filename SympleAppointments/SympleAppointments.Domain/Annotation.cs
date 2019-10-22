@@ -10,5 +10,7 @@ namespace SympleAppointments.Domain
 
         public string Note { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+
     }
 }

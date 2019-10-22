@@ -15,5 +15,7 @@ namespace SympleAppointments.Domain
 
         public ICollection<Annotation> Annotations { get; set; }
         public AppointmentStatus Status { get; set; }
+
+        public DateTime CreatedAt { get; set; }
     }
 }

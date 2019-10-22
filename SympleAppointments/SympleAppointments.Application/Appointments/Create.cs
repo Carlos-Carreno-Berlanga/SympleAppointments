@@ -67,7 +67,9 @@ namespace SympleAppointments.Application.Appointments
                     Worker = worker,
                     EndDateTime = request.EndDateTime,
                     StartDateTime = request.StartDateTime,
-                    Status = AppointmentStatus.Pending
+                    Status = AppointmentStatus.Pending,
+                    CreatedAt = DateTime.UtcNow
+                    //Annotations= new List<Annotation>(){ new Annotation { Note="TTT" }, new Annotation { Note = "xxxx" } }
 
                 };
 
