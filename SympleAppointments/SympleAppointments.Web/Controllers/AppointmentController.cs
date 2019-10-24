@@ -1,12 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SympleAppointments.Application.Appointments;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SympleAppointments.Web.Controllers
 {
     public class AppointmentController : BaseController
     {
+
+        [HttpGet]
+        public async Task<ActionResult<List<AppointmentDto>>> GetAllAsync()
+        {
+
+            return Ok(await Mediator.Send(new GetAll.Query()));
+        }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<AppointmentDto>> GetOneAsync(Guid id)
