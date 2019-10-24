@@ -11,7 +11,7 @@ namespace SympleAppointments.Web.Controllers
     public class ReviewsController : BaseController
     {
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<ReviewDto>>> GetOneAsync(Guid id)
+        public async Task<ActionResult<ReviewDto>> GetOneAsync(Guid id)
         {
 
             return Ok(await Mediator.Send(new GetOne.Query { Id = id }));
