@@ -23,6 +23,13 @@ namespace SympleAppointments.Web.Controllers
             return Ok(await Mediator.Send(new GetOne.Query { Id = id }));
         }
 
+        [HttpGet("client/{clientId}")]
+        public async Task<ActionResult<List<AppointmentDto>>> GetAllAppointmentsByClient(Guid clientId)
+        {
+
+            return Ok(await Mediator.Send(new GetAllByClient.Query { ClientId = clientId }));
+        }
+
         [HttpPost]
         public async Task<ActionResult<AppointmentDto>> CreateAsync(Create.Command command)
         {
