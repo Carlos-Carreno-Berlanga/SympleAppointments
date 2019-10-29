@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using MediatR;
+using MediatR.Pipeline;
 using Microsoft.EntityFrameworkCore;
 using SympleAppointments.Application.Exceptions;
 using SympleAppointments.Domain;
 using SympleAppointments.Persistence;
 using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
+using System.Net.Mail;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -85,5 +85,31 @@ namespace SympleAppointments.Application.Appointments
                 throw new Exception("Problem saving changes");
             }
         }
+
+        public class SendEmailAfterCreatingAppointment : IRequestPostProcessor<Command, AppointmentDto>
+        {
+            public async Task Process(Command request, AppointmentDto response, CancellationToken cancellationToken)
+            {
+                using (var message = new MailMessage())
+                {
+                    message.To.Add(new MailAddress(response.Client, "To Name"));
+                    message.From = new MailAddress(Environment.GetEnvironmentVariable("SMTP_ACCOUNT"), "From Name");
+ 
+                    message.Subject = "Test mail karlos";
+                    message.Body = "Body";
+                    message.IsBodyHtml = true;
+
+                    using (var client = new SmtpClient("smtp.gmail.com"))
+                    {
+                        client.Port = 587;
+                        client.Credentials = new NetworkCredential(Environment.GetEnvironmentVariable("SMTP_ACCOUNT"),
+                                                                    Environment.GetEnvironmentVariable("SMTP_PASSWORD"));
+                        client.EnableSsl = true;
+                        await client.SendMailAsync(message);
+                    }
+                }
+            }
+        }
+
     }
 }

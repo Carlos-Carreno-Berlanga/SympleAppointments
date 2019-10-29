@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using MediatR;
+using MediatR.Pipeline;
 using Microsoft.EntityFrameworkCore;
 using SympleAppointments.Application.Exceptions;
 using SympleAppointments.Domain;
 using SympleAppointments.Persistence;
 using System;
+using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -49,8 +51,8 @@ namespace SympleAppointments.Application.Reviews
                 var review = new Review
                 {
                     AppUser = user,
-                    CreatedAt= DateTime.UtcNow,
-                    Comment= request.Comment,
+                    CreatedAt = DateTime.UtcNow,
+                    Comment = request.Comment,
                     NumberOfStars = request.NumberOfStars
 
                 };
@@ -65,6 +67,24 @@ namespace SympleAppointments.Application.Reviews
                 }
 
                 throw new Exception("Problem saving changes");
+            }
+
+
+        }
+
+        public class Test : IRequestPostProcessor<Command, ReviewDto>
+        {
+            public async Task Process(Command request, ReviewDto response, CancellationToken cancellationToken)
+            {
+                Debug.Write("Test1");
+            }
+        }
+
+        public class Test2 : IRequestPostProcessor<Command, ReviewDto>
+        {
+            public async Task Process(Command request, ReviewDto response, CancellationToken cancellationToken)
+            {
+                Debug.Write("Test2");
             }
         }
     }
