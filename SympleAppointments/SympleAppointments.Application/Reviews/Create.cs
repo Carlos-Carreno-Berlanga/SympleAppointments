@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,16 @@ namespace SympleAppointments.Application.Reviews
             public string Comment { get; set; }
 
             public string UserId { get; set; }
+        }
+
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator()
+            {
+                RuleFor(x => x.Comment).NotEmpty();
+                RuleFor(x => x.NumberOfStars).LessThanOrEqualTo(5).GreaterThanOrEqualTo(0);
+
+            }
         }
 
         public class Handler : IRequestHandler<Command, ReviewDto>
