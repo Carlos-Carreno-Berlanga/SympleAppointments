@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using SympleAppointments.Application.Reviews;
 using SympleAppointments.Domain;
 using SympleAppointments.Persistence;
+using System.IO;
 
 namespace SympleAppointments.Web
 {
@@ -65,6 +66,15 @@ namespace SympleAppointments.Web
                 ;
             // Register the Swagger services
             services.AddSwaggerDocument();
+            services.AddLetsEncrypt(o =>
+            {
+                o.DomainNames = new[] { "e923f324.ngrok.io" };
+                o.UseStagingServer = true; // <--- use staging
+
+                o.AcceptTermsOfService = true;
+                o.EmailAddress = "carre85@gmail.com";
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,7 +92,7 @@ namespace SympleAppointments.Web
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+           // app.UseHttpsRedirection();
             app.UseStaticFiles();
             // Register the Swagger generator and the Swagger UI middlewares
             app.UseOpenApi();
@@ -111,6 +121,7 @@ namespace SympleAppointments.Web
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+            app.UseHttpsRedirection();
         }
     }
 }
