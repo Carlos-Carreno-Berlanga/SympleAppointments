@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,17 @@ namespace SympleAppointments.Application.Appointments
 
             public DateTime EndDateTime { get; set; }
 
+        }
+
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator()
+            {
+                RuleFor(x => x.Worker).NotEmpty();
+                RuleFor(x => x.Client).NotEmpty();
+                RuleFor(x => x.StartDateTime).NotEqual(default(DateTime));
+                RuleFor(x => x.EndDateTime).NotEqual(default(DateTime));
+            }
         }
 
         public class Handler : IRequestHandler<Command, AppointmentDto>
