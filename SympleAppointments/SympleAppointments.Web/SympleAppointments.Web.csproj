@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="McMaster.AspNetCore.LetsEncrypt" Version="0.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
@@ -33,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LetsEncrypt\McMaster.AspNetCore.LetsEncrypt.csproj" />
     <ProjectReference Include="..\SympleAppointments.Application\SympleAppointments.Application.csproj" />
   </ItemGroup>
 

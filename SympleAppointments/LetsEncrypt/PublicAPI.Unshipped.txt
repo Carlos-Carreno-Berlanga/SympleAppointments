@@ -1,0 +1,6 @@
+McMaster.AspNetCore.LetsEncrypt.ICertificateRepository
+McMaster.AspNetCore.LetsEncrypt.ICertificateRepository.SaveAsync(System.Security.Cryptography.X509Certificates.X509Certificate2 certificate, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task
+McMaster.AspNetCore.LetsEncrypt.PersistenceExtensions
+static McMaster.AspNetCore.LetsEncrypt.PersistenceExtensions.PersistCertificatesToDirectory(this McMaster.AspNetCore.LetsEncrypt.ILetsEncryptServiceBuilder builder, System.IO.DirectoryInfo directory, string pfxPassword) -> McMaster.AspNetCore.LetsEncrypt.ILetsEncryptServiceBuilder
+static McMaster.AspNetCore.LetsEncrypt.PersistenceExtensions.PersistCertificatesToLocalX509Store(this McMaster.AspNetCore.LetsEncrypt.ILetsEncryptServiceBuilder builder) -> McMaster.AspNetCore.LetsEncrypt.ILetsEncryptServiceBuilder
+static McMaster.AspNetCore.LetsEncrypt.PersistenceExtensions.PersistCertificatesToLocalX509Store(this McMaster.AspNetCore.LetsEncrypt.ILetsEncryptServiceBuilder builder, System.Security.Cryptography.X509Certificates.StoreName storeName, System.Security.Cryptography.X509Certificates.StoreLocation storeLocation) -> McMaster.AspNetCore.LetsEncrypt.ILetsEncryptServiceBuilder

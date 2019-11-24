@@ -1,5 +1,6 @@
 using AutoMapper;
 using FluentValidation.AspNetCore;
+using McMaster.AspNetCore.LetsEncrypt;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -68,12 +69,14 @@ namespace SympleAppointments.Web
             services.AddSwaggerDocument();
             services.AddLetsEncrypt(o =>
             {
-                o.DomainNames = new[] { "e923f324.ngrok.io" };
+                o.DomainNames = new[] { "325ae409.ngrok.io" };
                 o.UseStagingServer = true; // <--- use staging
 
                 o.AcceptTermsOfService = true;
                 o.EmailAddress = "carre85@gmail.com";
-            });
+            })
+                .PersistCertificatesToDirectory(new DirectoryInfo("D:/Repos/"), "Password123");
+
 
         }
 
@@ -92,7 +95,7 @@ namespace SympleAppointments.Web
                 app.UseHsts();
             }
 
-           // app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             // Register the Swagger generator and the Swagger UI middlewares
             app.UseOpenApi();
@@ -121,7 +124,6 @@ namespace SympleAppointments.Web
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
-            app.UseHttpsRedirection();
         }
     }
 }

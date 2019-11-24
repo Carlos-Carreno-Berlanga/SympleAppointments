@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SympleAppointments.Persiste
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SympleAppointments.Infrastructure", "SympleAppointments.Infrastructure\SympleAppointments.Infrastructure.csproj", "{B935855B-7C03-49DB-AAED-B4C793AD3740}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "McMaster.AspNetCore.LetsEncrypt", "LetsEncrypt\McMaster.AspNetCore.LetsEncrypt.csproj", "{D3E80CF1-6E07-4266-A053-B36BF83637ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B935855B-7C03-49DB-AAED-B4C793AD3740}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B935855B-7C03-49DB-AAED-B4C793AD3740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B935855B-7C03-49DB-AAED-B4C793AD3740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E80CF1-6E07-4266-A053-B36BF83637ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E80CF1-6E07-4266-A053-B36BF83637ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E80CF1-6E07-4266-A053-B36BF83637ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E80CF1-6E07-4266-A053-B36BF83637ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
