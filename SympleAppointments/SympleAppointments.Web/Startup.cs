@@ -15,6 +15,8 @@ using SympleAppointments.Application.Reviews;
 using SympleAppointments.Domain;
 using SympleAppointments.Persistence;
 using System.IO;
+using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SympleAppointments.Web
 {
@@ -69,13 +71,14 @@ namespace SympleAppointments.Web
             services.AddSwaggerDocument();
             services.AddLetsEncrypt(o =>
             {
-                o.DomainNames = new[] { "325ae409.ngrok.io" };
-                o.UseStagingServer = true; // <--- use staging
+                o.DomainNames = new[] { "d134ae77.ngrok.io" };
+                o.UseStagingServer = false; // <--- use staging
 
                 o.AcceptTermsOfService = true;
                 o.EmailAddress = "carre85@gmail.com";
             })
-                .PersistCertificatesToDirectory(new DirectoryInfo("D:/Repos/"), "Password123");
+                //.PersistCertificatesToDirectory(new DirectoryInfo( Assembly.GetExecutingAssembly().Location).Parent, "test");
+                .PersistCertificatesToLocalX509Store(StoreName.My, StoreLocation.CurrentUser);
 
 
         }

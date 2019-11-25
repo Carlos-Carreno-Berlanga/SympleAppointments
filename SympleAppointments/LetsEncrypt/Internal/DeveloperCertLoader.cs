@@ -52,7 +52,7 @@ namespace McMaster.AspNetCore.LetsEncrypt.Internal
         {
             using var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
             store.Open(OpenFlags.ReadOnly);
-            var certs = store.Certificates.Find(X509FindType.FindByExtension, AspNetHttpsOid, validOnly: false);
+            var certs = store.Certificates.Find(X509FindType.FindByIssuerName, "Let's Encrypt", validOnly: false);
             if (certs.Count == 0)
             {
                 _logger.LogDebug("Could not find the " + AspNetHttpsOidFriendlyName);
