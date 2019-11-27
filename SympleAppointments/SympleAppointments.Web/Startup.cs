@@ -23,9 +23,11 @@ namespace SympleAppointments.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        readonly IWebHostEnvironment _env;
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -70,16 +72,19 @@ namespace SympleAppointments.Web
                 ;
             // Register the Swagger services
             services.AddSwaggerDocument();
-            services.AddLetsEncrypt(o =>
+            bool useStagingServer;
+            bool.TryParse(Environment.GetEnvironmentVariable("USE_STAGING_SERVER"), out useStagingServer);
+            if (!_env.IsDevelopment())
             {
-                o.DomainNames = new[] { Environment.GetEnvironmentVariable("DOMAIN_NAME") };
-                o.UseStagingServer = true; // <--- use staging
-                o.AcceptTermsOfService = true;
-                o.EmailAddress = "carre85@gmail.com";
-            })
-            //.PersistCertificatesToDirectory(new DirectoryInfo(Assembly.GetExecutingAssembly().Location).Parent, "test");
-            .PersistCertificatesToLocalX509Store(StoreName.My, StoreLocation.CurrentUser);
-
+                services.AddLetsEncrypt(o =>
+                {
+                    o.DomainNames = new[] { Environment.GetEnvironmentVariable("DOMAIN_NAME") };
+                    o.UseStagingServer = useStagingServer;    // <--- use staging
+                    o.AcceptTermsOfService = true;
+                    o.EmailAddress = "carre85@gmail.com";
+                })
+                .PersistCertificatesToLocalX509Store(StoreName.My, StoreLocation.CurrentUser);
+            }
 
         }
 
@@ -122,10 +127,10 @@ namespace SympleAppointments.Web
             {
                 spa.Options.SourcePath = "ClientApp";
 
-                //if (env.IsDevelopment())
-                //{
-                //    spa.UseReactDevelopmentServer(npmScript: "start");
-                //}
+                if (env.IsDevelopment())
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                }
             });
         }
     }
