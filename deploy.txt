@@ -1,0 +1,1 @@
+docker build -f "D:\Repos\SympleAppointments\SympleAppointments\SympleAppointments.Web\Dockerfile" -t symplyappointments  --label "com.microsoft.created-by=visual-studio" "D:\Repos\SympleAppointments\SympleAppointments"

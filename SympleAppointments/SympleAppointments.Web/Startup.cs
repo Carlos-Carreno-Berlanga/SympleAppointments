@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using SympleAppointments.Application.Reviews;
 using SympleAppointments.Domain;
 using SympleAppointments.Persistence;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
@@ -71,14 +72,13 @@ namespace SympleAppointments.Web
             services.AddSwaggerDocument();
             services.AddLetsEncrypt(o =>
             {
-                o.DomainNames = new[] { "d134ae77.ngrok.io" };
-                o.UseStagingServer = false; // <--- use staging
-
+                o.DomainNames = new[] { Environment.GetEnvironmentVariable("DOMAIN_NAME") };
+                o.UseStagingServer = true; // <--- use staging
                 o.AcceptTermsOfService = true;
                 o.EmailAddress = "carre85@gmail.com";
             })
-                //.PersistCertificatesToDirectory(new DirectoryInfo( Assembly.GetExecutingAssembly().Location).Parent, "test");
-                .PersistCertificatesToLocalX509Store(StoreName.My, StoreLocation.CurrentUser);
+            //.PersistCertificatesToDirectory(new DirectoryInfo(Assembly.GetExecutingAssembly().Location).Parent, "test");
+            .PersistCertificatesToLocalX509Store(StoreName.My, StoreLocation.CurrentUser);
 
 
         }
@@ -122,10 +122,10 @@ namespace SympleAppointments.Web
             {
                 spa.Options.SourcePath = "ClientApp";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
-                }
+                //if (env.IsDevelopment())
+                //{
+                //    spa.UseReactDevelopmentServer(npmScript: "start");
+                //}
             });
         }
     }
